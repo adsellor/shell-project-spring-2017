@@ -4,6 +4,10 @@ int status = 0;
 
 std::vector <std::string> parsing (std::string input_line) {
   if (input_line == "ls") {
+    status = 1;
+  }
+  else if (input_line == "clear")
+  {
     status = 2;
   }
   else {
@@ -35,6 +39,6 @@ void get_command(void) {
   praserd_commands = parsing(input_line);
 }
 
-int get_status() {
+int get_status(void) {
   return status;
 }
