@@ -4,5 +4,5 @@
 #include <vector>
 #include <sstream>
 
-void get_comand(void);
+void get_command(void);
 std::vector <std::string> preasing (std::string inputLine);

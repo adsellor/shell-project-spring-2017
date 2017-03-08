@@ -2,9 +2,11 @@
 
 int main(int argc, char **argv) {
 
-  while (true) {
-    get_comand();
-    break;
+	char c = '\0';
+
+  while (c != EOF) {
+  	printf("[Iterate_Shell] ");
+    get_command();
   }
   return 0;
 }

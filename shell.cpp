@@ -21,7 +21,7 @@ std::vector <std::string> parsing (std::string input_line){
   return return_value;
 }
 
-void get_comand(void) {
+void get_command(void) {
   std::string input_line;
   std::vector <std::string> praserd_commands;
   getline (std::cin, input_line) ;
