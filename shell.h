@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
-#include <unistd.h>
+#include <string>
+#include <vector>
+#include <sstream>
 
-
-void parse(char *line, char *argv[]);
-void execute(char *argv[]);
+void get_comand(void);
+std::vector <std::string> preasing (std::string inputLine);

@@ -1,16 +1,10 @@
 #include "../shell.h"
 
-int main(void) {
+int main(int argc, char **argv) {
 
-  char  line[128];
-  char  *argv[128];
-  char c = '\0';
-
-  while (c != EOF) {
-    printf("[Iterate_Shell] ");
-    gets(line); //reads the line
-    parse(line, argv);
-    execute(argv);
+  while (true) {
+    get_comand();
+    break;
   }
   return 0;
 }
