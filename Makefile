@@ -25,4 +25,6 @@ program:library
 # wildcard pattern go off.
 library:${objs}; ar rcs ${lib_name} ${objs}
 
+test_shell:program; PATH='' ./${program}
+
 clean:; @rm -rf ${program} *.dSYM *.o ${lib_name} *.so *.a

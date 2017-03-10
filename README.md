@@ -90,3 +90,11 @@ $ pstree
 
 If you don't have `pstree` then use `aptitude` to install it,
 `$ aptitude install pstree`.
+
+# Testing the shell
+
+You should be invoking `iterate_shell` as so:
+
+```shell
+$ make test_shell
+```
