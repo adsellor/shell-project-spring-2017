@@ -1,11 +1,7 @@
 #pragma once
 #include <iostream>
-#include <string>
-#include <vector>
-#include <sstream>
 #include <unistd.h>
 
-extern int status;
-void get_command(void);
-std::vector <std::string> preasing (std::string inputLine);
-int get_status(void);
+
+void parse(char *line, char *argv[]);
+void execute(char *argv[]);

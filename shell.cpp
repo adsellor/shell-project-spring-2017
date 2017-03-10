@@ -1,44 +1,40 @@
 #include "shell.h"
 
-int status = 0;
-
-std::vector <std::string> parsing (std::string input_line) {
-  if (input_line == "ls") {
-    status = 1;
-  }
-  else if (input_line == "clear")
-  {
-    status = 2;
-  }
-  else {
-  for (int i = 0; i < input_line.size(); i++) {
-    if(input_line.at(i) == '<'
-    || input_line.at(i) == '>'
-    || input_line.at(i) == '|'){
-      input_line.insert(i, " ");
-      input_line.insert(i + 2, " ");
-      i++;
+/*
+Because we are using pointer we should handle how it will parse the strings.
+So, it reads the line until hits a non empty character, saves the position
+into argv and skip the rest.
+*/
+void parse(char *line, char *argv[]) {
+  while(*line != '\0') {
+    while(*line == ' ' 
+      || *line == '\n' 
+      || *line == '\t') {
+      *line++ = '\0';
+    }
+    *argv++ = line; //saves the position
+    //traverse to the end of command
+    while (*line != '\0' 
+      && *line != ' ' 
+      && *line != '\t' 
+      && *line != '\n') {
+      line++;
     }
   }
-  }
-  std::stringstream ss (input_line) ;
-  std::vector<std::string> return_value ;
-  for ( std::string word; ss>>word;) {
-    return_value.push_back(word);
-  }
-  for (int i = 0; i < return_value.size(); i++) {
-    std::cout << "command: " << return_value[i] << std::endl;
-  }
-  return return_value;
+  //strncpy(argv[lastIndex], "\0", 1); //curently crashs
 }
 
-void get_command(void) {
-  std::string input_line;
-  std::vector <std::string> praserd_commands;
-  getline (std::cin, input_line) ;
-  praserd_commands = parsing(input_line);
-}
-
-int get_status(void) {
-  return status;
+void execute(char *argv[]) {
+  //compare two strings. if equal returns 0
+  if (strcmp(argv[0], "exit") == 0) {
+    exit(0); //command for exiting from shell
+  }
+  //create a new child process
+  if (fork() == 0) {
+    execvp(*argv, argv); //instead of execve
+  }
+  //wait until current process finishes its job
+  else {
+    wait(NULL);
+  }
 }
