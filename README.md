@@ -51,7 +51,8 @@ $ git status
 What will your shell really read in? 
 
 ```
-*HINT: How much should you keep reading? When do you stop reading from `stdin`?*
+*HINT: How much should you keep reading?
+When do you stop reading from `stdin`?*
 ```
 
 You shell will get:
@@ -69,7 +70,8 @@ aka `-` and `--`.
 special symbols |, <, and >
 ```
 
-Once you have that all together, you need to think about process management.
+Once you have that all together, you need to think about process
+management.
 
 # Process management
 
@@ -97,4 +99,24 @@ You should be invoking `iterate_shell` as so:
 
 ```shell
 $ make test_shell
+```
+
+# System calls you are expected to use
+
+These are C system calls that you are expected to use in this project:
+
+```
+execve (To execute the program)
+waitpid (To make the parent wait for the child)
+fopen (To read a startup script)
+fork (To create a new process)
+stat (To check if a file exists)
+fread (To read from a file)
+```
+
+Remember you can always find more details in their respective man
+pages, for example you can do in the shell:
+
+```
+$ man 2 execve
 ```
