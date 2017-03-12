@@ -66,7 +66,7 @@ vector<string> parsing (string input_line){
     return_value.push_back(word);
   }
   for (size_t i = 0; i < return_value.size(); i++) {
-    cout << return_value[i] << endl;
+    cout << give_me_color(1) << return_value[i] << give_me_color(0) << endl;
   }
   return return_value;
 }
@@ -113,3 +113,30 @@ void get_comand(void) {
   fork_exec(parsed_commands);
 }
 
+string give_me_color(int color_index) {
+  string output;
+
+  // 1 - for red, 2 - for green, 3 - for blue, 4 - for cyan,
+  // 5 - for magenta, 0 - for default
+  switch (color_index) {
+    case 1:
+      output = "\033[1;31m";
+      break;
+    case 2:
+      output = "\033[1;32m";
+      break;
+    case 3:
+      output = "\033[1;34m";
+      break;
+    case 4:
+      output = "\033[1;36m";
+      break;
+    case 5:
+      output = "\033[1;35m";
+      break;
+    case 0:
+    default:
+      output = "\033[0m";
+  }
+  return output;
+}
