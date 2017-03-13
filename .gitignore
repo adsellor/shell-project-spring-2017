@@ -4,3 +4,4 @@
 *.out
 iterate_shell
 *.a
+lex.yy.c
