@@ -7,7 +7,7 @@ using std::cin;
 using std::endl;
 using std::stringstream;
 
-struct Path {
+/*struct Path {
   vector<string> paths;
   void show_path(){
     for (size_t i = 0; i < paths.size(); i++) {
@@ -140,3 +140,4 @@ string give_me_color(int color_index) {
   }
   return output;
 }
+*
