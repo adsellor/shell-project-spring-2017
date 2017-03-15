@@ -22,21 +22,9 @@
 
 "&"                                                                           {return AMPERSAND;}
 
-">&"                                                                          {return GREATAMPERSAND;}
-
-"))"                                                                          {return AMPERBANG;}
-
-"&>"	                                                                        {return AMPOUTANG;}
-
-"&>|"                                                                         {return OUTANGAMPBANG;}
-
-">>&"	                                                                        {return DOUTANGAMP;	}
-
-">>&|"	                                                                      {return DOUTANGAMPBANG; }
-
 "|"                                                                           {return PIPE;}
 
-"|&"	                                                                        {return PIPEAMP;}
+
 
 .                                                                             {return NOTOKEN; }
 %%

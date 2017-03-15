@@ -7,7 +7,7 @@ using std::cin;
 using std::endl;
 using std::stringstream;
 
-/*struct Path {
+/* struct Path {
   vector<string> paths;
   void show_path(){
     for (size_t i = 0; i < paths.size(); i++) {
@@ -139,5 +139,19 @@ string give_me_color(int color_index) {
       output = "\033[0m";
   }
   return output;
+} */
+
+SimpleCommand::SimpleCommand()  {
+  _numberOfMaxArguments = 5;
+  _numberOfArguments  = 0;
+  _arguments(char **) malloc(_numberOfMaxArguments  * sizeof(char *));
 }
-*
+
+void SimpleCommand:putArgument(char * argument) {
+  if(_numberOfMaxArguments  ==  _numberOfArguments  + 1){
+    _numberOfMaxArguments *= 2;
+    _arguments  (char **) realloc(_arguments, _numberOfMaxArguments * sizeof(cahr *));
+  }
+
+//processes will be added
+}
